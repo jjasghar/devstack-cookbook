@@ -33,7 +33,7 @@ git "#{node['devstack']['dest']}/devstack" do
 end
 
 template "localrc" do
-   path "#{node['devstack']['dest']}/localrc"
+   path "#{node['devstack']['dest']}/devstack/localrc"
    owner "root"
    group "root"
    mode 00755
