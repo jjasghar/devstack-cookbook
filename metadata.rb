@@ -46,4 +46,4 @@ attribute "devstack-chef/dest",
 
 attribute "devstack-chef/pip-timeout",
   :description => "The default time out for pip",
-  :default => 1000
+  :default => "1000"
