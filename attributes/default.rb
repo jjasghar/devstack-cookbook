@@ -7,4 +7,4 @@ default['devstack_chef']['admin-password'] = "ostackdemo"
 default['devstack_chef']['dest'] = "/opt/stack"
 
 # Django...
-default['devstack_chef']['pip-timeout'] = 1000
+default['devstack_chef']['pip-timeout'] = "1000"

@@ -36,14 +36,14 @@ template "localrc" do
    path "#{node['devstack_chef']['dest']}/localrc"
    owner "root"
    group "root"
-   mode 00777
+   mode 00755
 end
 
 template "pip.conf" do 
    path "#{node['devstack_chef']['dest']}/.pip/pip.conf"
    owner "root"
    group "root"
-   mode 00777
+   mode 00755
 end
 
 execute "stack.sh" do
