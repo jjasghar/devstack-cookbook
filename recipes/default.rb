@@ -19,14 +19,6 @@
 
 include_recipe 'git'
 
-directory "#{node['devstack']['dest']}/.pip" do
-  owner "root"
-  group "root"
-  mode 00755
-  action :create
-  recursive true
-end
-
 git "#{node['devstack']['dest']}/devstack" do
   repository "https://github.com/openstack-dev/devstack.git"
   reference "master"
@@ -37,6 +29,14 @@ template "localrc" do
    owner "root"
    group "root"
    mode 00755
+end
+
+directory ".pip" do
+  owner "root"
+  group "root"
+  mode 00755
+  action :create
+  recursive true
 end
 
 template "pip.conf" do 
