@@ -1,0 +1,6 @@
+pasHOST_IP=<%= node['devstack-chef']['host-ip'] %>
+DATABASE_PASSWORD=<%= node['devstack-chef']['database-password'] %>
+RABBIT_PASSWORD=<%= node['devstack-chef']['rabbit-password'] %>
+SERVICE_TOKEN=<%= node['devstack-chef']['service-token'] %>
+SERVICE_PASSWORD=<%= node['devstack-chef']['service-password'] %>
+ADMIN_PASSWORD=<%= node['devstack-chef']['admin-password'] %>
