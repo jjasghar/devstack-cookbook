@@ -39,7 +39,7 @@ template "localrc" do
    mode 00755
 end
 
-directory ".pip" do
+directory "/root/.pip" do
   owner "root"
   group "root"
   mode 00755
@@ -48,7 +48,7 @@ directory ".pip" do
 end
 
 template "pip.conf" do 
-   path ".pip/pip.conf"
+   path "/root/.pip/pip.conf"
    owner "root"
    group "root"
    mode 00755
