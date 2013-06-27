@@ -32,9 +32,19 @@ git node['devstack_chef']['dest'] do
   reference "master"
 end
 
-template "#{node['devstack_chef']['dest']}/localrc"
+template "localrc" do
+   path "#{node['devstack_chef']['dest']}/localrc"
+   owner "root"
+   group "root"
+   mode 00777
+end
 
-template "#{node['devstack_chef']['dest']}/.pip/pip.conf"
+template "pip.conf" do 
+   path "#{node['devstack_chef']['dest']}/.pip/pip.conf"
+   owner "root"
+   group "root"
+   mode 00777
+end
 
 execute "stack.sh" do
   command "./stack.sh > /var/log/devstack.log"
