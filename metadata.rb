@@ -1,7 +1,7 @@
-name             'devstack_chef'
+name             'devstack'
 maintainer       "Rackspace US, Inc"
 license          "Apache 2.0"
-description      'Installs/Configures devstack_chef'
+description      'Installs/Configures devstack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 
@@ -13,37 +13,37 @@ end
   depends dep
 end
 
-recipe "devstack_chef::default",
+recipe "devstack::default",
   "Clones the devstack repo and installs the configured stack"
 
-attribute "devstack-chef/host-ip",
+attribute "devstack/host-ip",
   :description => "The host/ip to bind the stack to",
   :default => "198.101.10.10"
 
-attribute "devstack-chef/database-password",
+attribute "devstack/database-password",
   :description => "The password for the DevStack database",
   :default => "ostackdemo"
 
-attribute "devstack-chef/rabbit-password",
+attribute "devstack/rabbit-password",
   :description => "The password for the rabbit service",
   :default => "ostackdemo"
 
-attribute "devstack-chef/service-token",
+attribute "devstack/service-token",
   :description => "The token for the DevStack service user",
   :default => "token"
 
-attribute "devstack-chef/service-password",
+attribute "devstack/service-password",
   :description => "The password for the DevStack service user",
   :default => "ostackdemo"
 
-attribute "devstack-chef/admin-password",
+attribute "devstack/admin-password",
   :description => "The password for the DevStack admin user",
   :default => "ostackdemo"
 
-attribute "devstack-chef/dest",
+attribute "devstack/dest",
   :description => "The directory to install DevStack",
   :default => "/opt/stack"
 
-attribute "devstack-chef/pip-timeout",
+attribute "devstack/pip-timeout",
   :description => "The default time out for pip",
   :default => "1000"

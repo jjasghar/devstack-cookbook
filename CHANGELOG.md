@@ -1,10 +1,10 @@
-# CHANGELOG for devstack_chef
+# CHANGELOG for devstack
 
-This file is used to list changes made in each version of devstack_chef.
+This file is used to list changes made in each version of devstack.
 
 ## 0.1.0:
 
-* Initial release of devstack_chef
+* Initial release of devstack
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

@@ -1,5 +1,5 @@
  #
-# Cookbook Name:: devstack_chef
+# Cookbook Name:: devstack
 # Recipe:: default
 #
 # Copyright 2012, Rackspace US, Inc.
@@ -19,7 +19,7 @@
 
 include_recipe 'git'
 
-directory "#{node['devstack_chef']['dest']}/.pip" do
+directory "#{node['devstack']['dest']}/.pip" do
   owner "root"
   group "root"
   mode 00755
@@ -27,20 +27,20 @@ directory "#{node['devstack_chef']['dest']}/.pip" do
   recursive true
 end
 
-git node['devstack_chef']['dest'] do
+git node['devstack']['dest'] do
   repository "https://github.com/openstack-dev/devstack.git"
   reference "master"
 end
 
 template "localrc" do
-   path "#{node['devstack_chef']['dest']}/localrc"
+   path "#{node['devstack']['dest']}/localrc"
    owner "root"
    group "root"
    mode 00755
 end
 
 template "pip.conf" do 
-   path "#{node['devstack_chef']['dest']}/.pip/pip.conf"
+   path "#{node['devstack']['dest']}/.pip/pip.conf"
    owner "root"
    group "root"
    mode 00755
@@ -48,5 +48,5 @@ end
 
 execute "stack.sh" do
   command "./stack.sh > /var/log/devstack.log"
-  cwd "#{node['devstack_chef']['dest']}"
+  cwd "#{node['devstack']['dest']}"
 end
