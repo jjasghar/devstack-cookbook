@@ -48,5 +48,5 @@ end
 
 execute "stack.sh" do
   command "./stack.sh > /var/log/devstack.log"
-  cwd "#{node['devstack']['dest']}"
+  cwd "#{node['devstack']['dest']}/devstack"
 end
