@@ -19,14 +19,24 @@
 
 include_recipe 'git'
 
-git '/opt/devstack' do
+directory "\#{default['devstack-chef']['dest']}/.pip" do
+  owner "root"
+  group "root"
+  mode 00755
+  action :create
+  recursive true
+end
+
+git default['devstack-chef']['dest'] do
   repository "https://github.com/openstack-dev/devstack.git"
   reference "master"
 end
 
-template "/opt/devstack/localrc"
+template "\#{default['devstack-chef']['dest']}/localrc"
+
+template "\#{default['devstack-chef']['dest']}/.pip/pip.conf"
 
 execute "stack.sh" do
   command "./stack.sh > /var/log/devstack.log"
-  cwd "/opt/devstack"
+  cwd default['devstack-chef']['dest']
 end
