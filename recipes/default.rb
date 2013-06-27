@@ -27,6 +27,6 @@ end
 template "/opt/devstack/localrc"
 
 execute "stack.sh" do
-  command "export PIP_DEFAULT_TIMEOUT=60; ./stack.sh > /var/log/devstack.log"
+  command "./stack.sh > /var/log/devstack.log"
   cwd "/opt/devstack"
 end
