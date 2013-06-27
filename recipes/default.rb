@@ -18,6 +18,7 @@
 #
 
 include_recipe 'git'
+include_recipe 'python::pip'
 
 directory "#{node['devstack']['dest']}/.pip" do
   owner "root"
@@ -40,7 +41,7 @@ template "localrc" do
 end
 
 template "pip.conf" do 
-   path "#{node['devstack']['dest']}/.pip/pip.conf"
+   path ".pip/pip.conf"
    owner "root"
    group "root"
    mode 00755
