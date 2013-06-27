@@ -27,7 +27,7 @@ directory "#{node['devstack']['dest']}/.pip" do
   recursive true
 end
 
-git "#{node['devstack']['dest']}/tempest" do
+git "#{node['devstack']['dest']}/devstack" do
   repository "https://github.com/openstack-dev/devstack.git"
   reference "master"
 end
