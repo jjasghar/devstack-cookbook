@@ -19,6 +19,14 @@
 
 include_recipe 'git'
 
+directory "#{node['devstack']['dest']}" do
+  owner "root"
+  group "root"
+  mode 00755
+  action :create
+  recursive true
+end
+
 git "#{node['devstack']['dest']}/devstack" do
   repository "https://github.com/openstack-dev/devstack.git"
   reference "master"
