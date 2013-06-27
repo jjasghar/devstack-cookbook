@@ -19,7 +19,7 @@
 
 include_recipe 'git'
 
-directory "\#{node['devstack-chef']['dest']}/.pip" do
+directory "#{node['devstack-chef']['dest']}/.pip" do
   owner "root"
   group "root"
   mode 00755
@@ -32,9 +32,9 @@ git node['devstack-chef']['dest'] do
   reference "master"
 end
 
-template "\#{node['devstack-chef']['dest']}/localrc"
+template "#{node['devstack-chef']['dest']}/localrc"
 
-template "\#{node['devstack-chef']['dest']}/.pip/pip.conf"
+template "#{node['devstack-chef']['dest']}/.pip/pip.conf"
 
 execute "stack.sh" do
   command "./stack.sh > /var/log/devstack.log"
