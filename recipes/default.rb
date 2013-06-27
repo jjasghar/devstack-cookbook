@@ -18,7 +18,6 @@
 #
 
 include_recipe 'git'
-include_recipe 'python::pip'
 
 directory "#{node['devstack']['dest']}/.pip" do
   owner "root"
