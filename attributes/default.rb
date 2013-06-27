@@ -1,10 +1,10 @@
-default['devstack-chef']['host-ip'] = "198.101.10.10"
-default['devstack-chef']['database-password'] = "ostackdemo"
-default['devstack-chef']['rabbit-password'] = "ostackdemo"
-default['devstack-chef']['service-token'] = "token"
-default['devstack-chef']['service-password'] = "ostackdemo"
-default['devstack-chef']['admin-password'] = "ostackdemo"
-default['devstack-chef']['dest'] = "/opt/stack"
+default['devstack_chef']['host-ip'] = "198.101.10.10"
+default['devstack_chef']['database-password'] = "ostackdemo"
+default['devstack_chef']['rabbit-password'] = "ostackdemo"
+default['devstack_chef']['service-token'] = "token"
+default['devstack_chef']['service-password'] = "ostackdemo"
+default['devstack_chef']['admin-password'] = "ostackdemo"
+default['devstack_chef']['dest'] = "/opt/stack"
 
 # Django...
-default['devstack-chef']['pip-timeout'] = 1000
+default['devstack_chef']['pip-timeout'] = 1000
