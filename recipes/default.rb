@@ -1,4 +1,4 @@
- #
+#
 # Cookbook Name:: devstack
 # Recipe:: default
 #
@@ -47,11 +47,17 @@ directory "/root/.pip" do
   recursive true
 end
 
-template "pip.conf" do 
+template "pip.conf" do
    path "/root/.pip/pip.conf"
    owner "root"
    group "root"
    mode 00755
+end
+
+execute "apt-get-update" do
+  command "apt-get update"
+  ignore_failure true
+  action :nothing
 end
 
 execute "stack.sh" do
