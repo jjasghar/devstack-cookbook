@@ -1,4 +1,4 @@
-default['devstack']['host-ip'] = "198.101.10.10"
+default['devstack']['host-ip'] = "198.168.101.101"
 default['devstack']['database-password'] = "ostackdemo"
 default['devstack']['rabbit-password'] = "ostackdemo"
 default['devstack']['service-token'] = "token"
