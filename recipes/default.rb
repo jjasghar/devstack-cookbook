@@ -36,13 +36,13 @@ template "localrc" do
    path "#{node['devstack']['dest']}/devstack/localrc"
    owner "root"
    group "root"
-   mode 00755
+   mode 00644
 end
 
 directory "/root/.pip" do
   owner "root"
   group "root"
-  mode 00755
+  mode 00644
   action :create
   recursive true
 end
@@ -51,7 +51,7 @@ template "pip.conf" do
    path "/root/.pip/pip.conf"
    owner "root"
    group "root"
-   mode 00755
+   mode 00644
 end
 
 execute "apt-get-update" do
