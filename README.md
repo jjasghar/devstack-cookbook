@@ -25,41 +25,49 @@ Attributes
   </tr>
   <tr>
     <td><tt>['devstack']['host-ip']</tt></td>
+    <td>String</td>
     <td>The host/ip to bind the stack to</td>
     <td><tt>198.101.10.10</tt></td>
   </tr>
   <tr>
     <td><tt>['devstack']['database-password']</tt></td>
+    <td>String</td>
     <td>The password for the DevStack database</td>
     <td><tt>ostackdemo</tt></td>
   </tr>
   <tr>
     <td><tt>['devstack']['rabbit-password']</tt></td>
+    <td>String</td>
     <td>The password for tde rabbit service</td>
     <td><tt>ostackdemo</tt></td>
   </tr>
   <tr>
     <td><tt>['devstack']['service-token']</tt></td>
+    <td>String</td>
     <td>The token for the DevStack service user</td>
     <td><tt>token</tt></td>
   </tr>
   <tr>
     <td><tt>['devstack']['service-password']</tt></td>
+    <td>String</td>
     <td>The password for the DevStack service user</td>
     <td><tt>ostackdemo</tt></td>
   </tr>
   <tr>
     <td><tt>['devstack']['admin-password']</tt></td>
+    <td>String</td>
     <td>The password for the DevStack admin user</td>
     <td><tt>ostackdemo</tt></td>
   </tr>
   <tr>
     <td><tt>['devstack']['dest']</tt></td>
+    <td>String</td>
     <td>The directory to install DevStack</td>
     <td><tt>/opt/stack</tt></td>
   </tr>
   <tr>
     <td><tt>['devstack']['pip-timeout']</tt></td>
+    <td>Integer</td>
     <td>The default time out for pip</td>
     <td><tt>1000</tt></td>
   </tr>
