@@ -1,7 +1,26 @@
-HOST_IP=<%= node['devstack']['host-ip'] %>
 DATABASE_PASSWORD=<%= node['devstack']['database-password'] %>
 RABBIT_PASSWORD=<%= node['devstack']['rabbit-password'] %>
 SERVICE_TOKEN=<%= node['devstack']['service-token'] %>
 SERVICE_PASSWORD=<%= node['devstack']['service-password'] %>
 ADMIN_PASSWORD=<%= node['devstack']['admin-password'] %>
 DEST=<%= node['devstack']['dest'] %>
+
+<% node['devstack']['additional_options'].each do |option| %>
+<%= option %>
+<% end %>
+
+<% node['devstack']['enable_services'].each do |service| %>
+enable_service <%= service %>
+<% end %>
+
+<% node['devstack']['disable_services'].each do |service| %>
+disable_service <%= service %>
+<% end %>
+
+<% if node['devstack']['enable_docker'] -%>
+VIRT_DRIVER=docker
+<% end -%>
+
+<% if node['devstack']['host-ip'] -%>
+HOST_IP=<%= node['devstack']['host-ip'] %>
+<% end -%>

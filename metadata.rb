@@ -9,7 +9,7 @@ version          '0.1.0'
   supports os
 end
 
-%w{ git }.each do |dep|
+%w{ git sudo }.each do |dep|
   depends dep
 end
 
