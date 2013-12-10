@@ -7,7 +7,7 @@ default['devstack']['service_token'] = node['devstack']['admin_password']
 default['devstack']['service_password'] = node['devstack']['admin_password']
 default['devstack']['dest'] = '/opt/stack'
 default['devstack']['user'] = 'devstack'
-default['devstack']['git_repo'] = 'https://github.com/openstack_dev/devstack.git'
+default['devstack']['git_repo'] = 'https://github.com/openstack-dev/devstack.git'
 default['devstack']['git_branch'] = 'master'
 default['devstack']['enable_docker'] = false
 # Django...

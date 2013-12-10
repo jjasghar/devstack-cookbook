@@ -32,18 +32,19 @@ sudo 'devstack' do
 end
 
 directory "#{node['devstack']['dest']}" do
-  owner  node['devstack']['user']
-  group node['devstack']['user']
-  mode 00755
-  action :create
+  owner     node['devstack']['user']
+  group     node['devstack']['user']
+  mode      00755
+  action    :create
   recursive true
 end
 
 git "#{node['devstack']['dest']}/devstack" do
-  user node['devstack']['user']
-  group node['devstack']['user']
-  repository node['devstack']['git_repo']
-  reference  node['devstack']['git_branch']
+  user        node['devstack']['user']
+  group       node['devstack']['user']
+  repository  node['devstack']['git_repo']
+  reference   node['devstack']['git_branch']
+  action      :sync
 end
 
 template "localrc" do
