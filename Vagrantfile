@@ -9,7 +9,7 @@ FileUtils.mkdir(host_cache_path) unless File.exist?(host_cache_path)
 Vagrant.configure("2") do |config|
 
   config.berkshelf.enabled = true
-  config.omnibus.chef_version = :latest  
+  config.omnibus.chef_version = :latest
 
  config.vm.define :ubuntu1204 do |ubuntu1204|
     ubuntu1204.vm.box      = 'opscode-ubuntu-12.04'
@@ -18,8 +18,8 @@ Vagrant.configure("2") do |config|
     ubuntu1204.vm.network :private_network, ip: '192.168.76.10'
     ubuntu1204.vm.provider "virtualbox" do |v|
       v.customize ["modifyvm", :id, "--memory", 2048]
-      v.customize ["modifyvm", :id, "--cpus", "2"]  
-    end    
+      v.customize ["modifyvm", :id, "--cpus", "2"]
+    end
     ubuntu1204.vm.provision :chef_solo do |chef|
       chef.provisioning_path  = guest_cache_path
       chef.log_level          = :debug
@@ -36,8 +36,8 @@ Vagrant.configure("2") do |config|
           enable_services: ['heat','h-api','h-api-cfn','h-api-cw','h-eng']
         }
       }
-      chef.run_list           = %w{ recipe[devstack::default] }
+      chef.run_list           = %w{ recipe[devstack::default] recipe[devstack::stack] }
     end
-  end  
+  end
 
 end

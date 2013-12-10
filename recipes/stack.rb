@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: devstack
-# Recipe:: default
+# Recipe:: stack
 #
 # Copyright 2012, Rackspace US, Inc.
 #
@@ -17,5 +17,8 @@
 # limitations under the License.
 #
 
-include_recipe 'devstack::install'
-include_recipe 'devstack::stack'
+execute 'stack.sh' do
+  user      node['devstack']['user']
+  command   "./stack.sh >> #{node['devstack']['dest']}/devstack/devstack.log"
+  cwd       "#{node['devstack']['dest']}/devstack"
+end

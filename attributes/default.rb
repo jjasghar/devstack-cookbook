@@ -1,12 +1,13 @@
-default['devstack']['host-ip'] = "" # default is unset
-default['devstack']['database-password'] = "ostackdemo"
-default['devstack']['rabbit-password'] = "ostackdemo"
-default['devstack']['service-token'] = "token"
-default['devstack']['service-password'] = "ostackdemo"
+default['devstack']['host-ip'] = '' # default is unset
+
 default['devstack']['admin-password'] = "ostackdemo"
-default['devstack']['dest'] = "/opt/stack"
+default['devstack']['database-password'] = node['devstack']['admin-password']
+default['devstack']['rabbit-password'] = node['devstack']['admin-password']
+default['devstack']['service-token'] = node['devstack']['admin-password']
+default['devstack']['service-password'] = node['devstack']['admin-password']
+default['devstack']['dest'] = '/opt/stack'
 default['devstack']['user'] = 'devstack'
-default['devstack']['git_repo'] = "https://github.com/openstack-dev/devstack.git"
+default['devstack']['git_repo'] = 'https://github.com/openstack-dev/devstack.git'
 default['devstack']['git_branch'] = 'master'
 default['devstack']['enable_docker'] = false
 # Django...
