@@ -19,6 +19,6 @@
 
 execute 'stack.sh' do
   user      node['devstack']['user']
-  command   "./stack.sh >> #{node['devstack']['dest']}/devstack/devstack.log"
+  command   "./stack.sh | tee #{node['devstack']['dest']}/devstack/devstack.log"
   cwd       "#{node['devstack']['dest']}/devstack"
 end
