@@ -21,4 +21,5 @@ execute 'stack.sh' do
   user      node['devstack']['user']
   command   "./stack.sh | tee #{node['devstack']['dest']}/devstack/devstack.log"
   cwd       "#{node['devstack']['dest']}/devstack"
+  timeout   7200
 end

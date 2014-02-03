@@ -1,4 +1,4 @@
-default['devstack']['host_ip'] = '' # default is unset
+default['devstack']['host_ip'] = '127.0.0.1' # default is localhost
 
 default['devstack']['admin_password'] = 'ostackdemo'
 default['devstack']['database_password'] = node['devstack']['admin_password']

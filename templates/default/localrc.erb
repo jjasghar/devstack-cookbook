@@ -4,6 +4,8 @@ SERVICE_TOKEN=<%= node['devstack']['service_token'] %>
 SERVICE_PASSWORD=<%= node['devstack']['service_password'] %>
 ADMIN_PASSWORD=<%= node['devstack']['admin_password'] %>
 DEST=<%= node['devstack']['dest'] %>
+NOVNC_FROM_PACKAGE=false
+SCREEN_LOGDIR=<%= "#{node['devstack']['dest']}/logs" %>
 
 <% node['devstack']['additional_options'].each do |option| %>
 <%= option %>
