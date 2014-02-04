@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: devstack
-# Recipe:: stack
+# Recipe:: user
 #
 # Copyright 2012, Rackspace US, Inc.
 #
@@ -17,10 +17,15 @@
 # limitations under the License.
 #
 
-execute 'stack.sh' do
-  user      node['devstack']['user']
-  command   "#{node['devstack']['dest']}/devstack/stack.sh && touch #{node['devstack']['dest']}/devstack/.stacked"
-  cwd       "#{node['devstack']['dest']}/devstack"
-  creates   "touch #{node['devstack']['dest']}/devstack/.stacked"
-  timeout   7200
+user node['devstack']['user'] do
+  comment  'Devstack User'
+  shell    '/bin/bash'
+  home     '/opt/stack'
+  supports :manage_home => true
+end
+
+sudo 'devstack' do
+  user      node['devstack']['user']   # or a username
+  commands  ['ALL']
+  nopasswd  true
 end

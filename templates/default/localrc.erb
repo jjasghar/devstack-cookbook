@@ -6,6 +6,7 @@ ADMIN_PASSWORD=<%= node['devstack']['admin_password'] %>
 DEST=<%= node['devstack']['dest'] %>
 NOVNC_FROM_PACKAGE=false
 SCREEN_LOGDIR=<%= "#{node['devstack']['dest']}/logs" %>
+LOGFILE=<%= "#{node['devstack']['dest']}/devstack/stack.sh.log" %>
 
 <% node['devstack']['additional_options'].each do |option| %>
 <%= option %>

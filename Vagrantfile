@@ -32,11 +32,10 @@ Vagrant.configure("2") do |config|
           }
         },
         devstack: {
-          git_branch: 'ddf656fdb631e575c71c30dccd2ba0ec6a10d974',
-          enable_services: ['heat','h-api','h-api-cfn','h-api-cw','h-eng']
+          git_branch: 'master',
         }
       }
-      chef.run_list           = %w{ recipe[devstack::default] recipe[devstack::stack] }
+      chef.run_list           = %w{ recipe[devstack::install] recipe[devstack::stack] }
     end
   end
 

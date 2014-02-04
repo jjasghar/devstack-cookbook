@@ -20,15 +20,8 @@
 include_recipe 'git'
 include_recipe 'sudo'
 
-user node['devstack']['user'] do
-  comment  "Devstack User"
-  shell    "/bin/bash"
-end
-
-sudo 'devstack' do
-  user      node['devstack']['user']   # or a username
-  commands  ['ALL']
-  nopasswd  true
+if node['devstack']['create_user']
+  include_recipe 'devstack::user'
 end
 
 directory "#{node['devstack']['dest']}" do
@@ -45,6 +38,7 @@ git "#{node['devstack']['dest']}/devstack" do
   repository  node['devstack']['git_repo']
   reference   node['devstack']['git_branch']
   action      :sync
+  not_if { File.exists?("#{node['devstack']['dest']}/devstack/.git/config") }
 end
 
 template "localrc" do
@@ -54,7 +48,7 @@ template "localrc" do
    mode  00644
 end
 
-directory "/home/#{node['devstack']['user']}/.pip" do
+directory "#{node['devstack']['dest']}/.pip" do
   owner node['devstack']['user']
   group node['devstack']['user']
   mode 00644
@@ -63,7 +57,7 @@ directory "/home/#{node['devstack']['user']}/.pip" do
 end
 
 template "pip.conf" do
-   path  "/home/#{node['devstack']['user']}/.pip/pip.conf"
+   path  "#{node['devstack']['dest']}/.pip/pip.conf"
    owner node['devstack']['user']
    group node['devstack']['user']
    mode  00644
