@@ -6,7 +6,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.0.0'
 
 supports 'ubuntu', '>= 14.04'
-supports 'centos', '>= 7'
+supports 'centos', '>= 7.0'
 
 
 %w{ git sudo }.each do |dep|
