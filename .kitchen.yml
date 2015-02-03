@@ -1,0 +1,39 @@
+---
+driver:
+  name: vagrant
+  network:
+  - ["forwarded_port", {guest: 443, host: 9443, auto_correct: true}]
+  - ["forwarded_port", {guest: 80, host: 8080, auto_correct: true}]
+  - ["forwarded_port", {guest: 4002, host: 4002, auto_correct: true}]
+  - ["forwarded_port", {guest: 5000, host: 5000, auto_correct: true}]
+  - ["forwarded_port", {guest: 8773, host: 8773, auto_correct: true}]
+  - ["forwarded_port", {guest: 8774, host: 8774, auto_correct: true}]
+  - ["forwarded_port", {guest: 35357, host: 35357, auto_correct: true}]
+  - ["public_network", {ip: "192.168.100.60", bridge: 'en0: Wi-Fi (AirPort)'}]
+  - ["private_network", {ip: "10.0.0.1"}]
+  customize:
+    cpus: 2
+    memory: 4096
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-14.04
+  - name: centos-7
+
+suites:
+  - name: default
+    run_list:
+      - recipe[devstack::install]
+      - recipe[devstack::stack]
+    attributes:
+      authorization:
+        sudo:
+          users: ['vagrant','devstack']
+          passwordless: true
+          include_sudoers_d: true
+          devstack:
+            git_branch: 'master'
+      devstack:
+        user: vagrant

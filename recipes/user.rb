@@ -22,6 +22,7 @@ user node['devstack']['user'] do
   shell    '/bin/bash'
   home     '/opt/stack'
   supports :manage_home => true
+  not_if { File.exists?("/home/vagrant/.bashrc") }
 end
 
 sudo 'devstack' do
