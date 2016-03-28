@@ -4,23 +4,11 @@ describe host('www.google.com') do
   it { should be_reachable }
 end
 
-describe port(3333) do
-  it { should be_listening }
-end
-
 describe port(80) do
   it { should be_listening }
 end
 
-describe port(9696) do
-  it { should be_listening }
-end
-
 describe port(5000) do
-  it { should be_listening }
-end
-
-describe port(8773) do
   it { should be_listening }
 end
 

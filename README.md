@@ -5,7 +5,9 @@ A cookbook to install [devstack](http://docs.openstack.org/developer/devstack/)
 ## Requirements
 
 ### Cookbooks
-  - [git](https://supermarket.chef.io/cookbooks/git)
+- [apt](https://supermarket.chef.io/cookbooks/apt)
+- [git](https://supermarket.chef.io/cookbooks/git)
+- [sudo](https://supermarket.chef.io/cookbooks/sudo)
 
 ### Operating Systems
  - Centos 7
@@ -61,7 +63,7 @@ $ chef exec kitchen login <version you converged>
 vagrant@<machine_you_converged> $ cd /opt/stack/devstack/
 vagrant@<machine_you_converged>:/opt/stack/devstack/ $ source openrc
 vagrant@<machine_you_converged>:/opt/stack/devstack/ $ nova list
-vagrant@<machine_you_converged>:/opt/stack/devstack/ $ nova nova boot test --image cirros-0.3.2-x86_64-uec --flavor 1
+vagrant@<machine_you_converged>:/opt/stack/devstack/ $ nova boot test --image cirros-0.3.4-x86_64-uec --flavor 1
 ```
 
 If you haven't changed any variables and usernames/passwords, you can go to http://localhost:8080 and use `demo/devstack` and see
